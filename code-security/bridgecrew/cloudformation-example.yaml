@@ -24,7 +24,7 @@ Resources:
         IgnorePublicAcls      : True
         RestrictPublicBuckets : True
       VersioningConfiguration:
-        Status: Disabled
+        Status: Enabled
   SampleAllowBucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
