@@ -4,6 +4,10 @@ resource "aws_alb" "main" {
   name            = "${var.app_prefix}-lb"
   subnets         = aws_subnet.public.*.id
   security_groups = [aws_security_group.lb.id]
+  drop_invalid_header_fields = true
+  access_logs {
+    enabled = true
+  }
 }
 
 resource "aws_alb_target_group" "app" {

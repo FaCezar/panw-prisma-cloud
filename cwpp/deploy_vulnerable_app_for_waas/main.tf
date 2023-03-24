@@ -127,7 +127,6 @@ resource "azurerm_linux_virtual_machine" "this" {
   size                            = "Standard_DS1_v2"
   admin_username                  = "azureuser"
   admin_password                  = random_password.this.result
-  disable_password_authentication = false
   custom_data                     = base64encode(local.custom_data)
   os_disk {
     name                 = "${var.prefix}-disk"
@@ -141,6 +140,7 @@ resource "azurerm_linux_virtual_machine" "this" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
+  allow_extension_operations = false
 }
 
 output "vm_public_ip" {
